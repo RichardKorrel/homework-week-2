@@ -23,6 +23,22 @@ class ShoppingCart {
   clear(){
     this.items = []
   }
+  clone(){
+    // Create a new ShoppingCart
+    const clonedCart = new ShoppingCart()
+    // The following spread operation on the items array
+    // does not work for some reason
+    //clonedCart.items = [...this.items]
+
+    // Instead use the map function to add a new
+    // array of items to the new ShoppingCart using
+    // the ShoppingCart addItem method
+    this.items.map(item =>
+        clonedCart.addItem(item.name,item.quantity,
+                           item.pricePerUnit))
+    // Return the cloned ShoppingCart
+    return clonedCart
+  }
 }
 
 // Export the class ShoppingCart

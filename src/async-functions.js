@@ -12,8 +12,22 @@ function giveItBackLater(value, callback){
   setTimeout(willBeCalledLater, 100)
 }
 
-// Declare function promiseToGiveItBackLater
+// Declare function promiseToGiveItBackLater and pass it
+// a parameter called value
 function promiseToGiveItBackLater(value){
+  // Create and return a new promise object with the
+  // eventually resolved value of parameter value
+  return new Promise((resolve) => {
+    // Declare the function willBeCalledLater that will
+    // resolve the value of the parameter called value
+    function willBeCalledLater() {
+      resolve(value)
+    }
+    // Call the function willBeCalledLater that resolves
+    // the value of the parameter value but only after
+    // 100 milliseconds
+    setTimeout(willBeCalledLater, 100)
+  })
 }
 
 // Declare function addSomePromises

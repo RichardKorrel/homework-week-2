@@ -30,8 +30,24 @@ function promiseToGiveItBackLater(value){
   })
 }
 
-// Declare function addSomePromises
+// Declare function addSomePromises and pass it a
+// promise object parameter called somePromise
 function addSomePromises(somePromise){
+  // Create and return a new promise object with a value
+  // depending on the result of promise somePromise
+  return new Promise((resolve, reject) => {
+    somePromise
+    .then ( // somePromise completed
+      // Case where somePromise resolves succesfully
+      // Return the value double as required
+      value  => {resolve(value+value)},
+      // Case where somePromise rejects
+      // Return the reason value triple as required
+      reason => {resolve(reason+reason+reason)})
+    // Case where somePromise resulted in an error
+    // Return the error
+    .catch(error => {return(error)})
+  })
 }
 
 // Export the fuctions

@@ -19,6 +19,10 @@ class ShoppingCart {
     // Concatenate the item to the items list
     this.items=this.items.concat(item)
   }
+  // Clear all the items from the ShoppingCart
+  clear(){
+    this.items = []
+  }
 }
 
 // Export the class ShoppingCart
